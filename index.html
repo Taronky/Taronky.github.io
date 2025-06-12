@@ -224,27 +224,52 @@
     <p>Feito com carinho pelo seu amô Thiago David</p>
     <p>Para a mulher mais especial do mundo.</p>
   </footer>
-  <!-- Pergunta surpresa -->
-<div id="ask-banner" style="display:none;
-                            position:fixed;
-                            bottom:20px;
-                            left:20px;
-                            background:#fff0f0;
-                            padding:1.5rem;
-                            border-radius:1rem;
-                            box-shadow:0 0 15px rgba(0,0,0,0.2);
-                            z-index:9999;
-                            transition: all 0.5s ease;">
-  <p style="margin-bottom:1rem; font-size:1.2rem; color:#990000;">
+  <!-- Pergunta surpresa (centralizada) -->
+<div id="ask-banner" style="
+     display:none;
+     position:fixed;
+     top:50%;
+     left:50%;
+     transform:translate(-50%, -50%);
+     width:80%;            /* largura maior */
+     max-width:400px;      /* não ultrapassa 400px */
+     background:#fff0f0;
+     padding:2rem;         /* padding maior */
+     border-radius:1.5rem; /* bordas mais arredondadas */
+     box-shadow:0 0 20px rgba(0,0,0,0.3);
+     z-index:9999;
+     text-align:center;
+     font-size:1.2rem;
+     transition: all 0.5s ease;
+   ">
+  <p style="margin-bottom:1.5rem; color:#990000;">
     Butico hj?
   </p>
-  <button id="btn-sim" style="margin-right:1rem; padding:0.5rem 1.2rem; border:none; background:#990000; color:white; border-radius:0.5rem; cursor:pointer;">
+  <button id="btn-sim" style="
+       margin-right:1rem;
+       padding:0.8rem 1.5rem;
+       border:none;
+       background:#990000;
+       color:white;
+       font-size:1rem;
+       border-radius:0.5rem;
+       cursor:pointer;
+     ">
     Sim
   </button>
-  <button id="btn-nao" style="padding:0.5rem 1.2rem; border:none; background:#bbb; color:white; border-radius:0.5rem; cursor:pointer;">
+  <button id="btn-nao" style="
+       padding:0.8rem 1.5rem;
+       border:none;
+       background:#bbb;
+       color:white;
+       font-size:1rem;
+       border-radius:0.5rem;
+       cursor:pointer;
+     ">
     Não
   </button>
 </div>
+
 <script>
   // 1) lista de posições para o banner
   const positions = [
@@ -263,7 +288,7 @@
   // 3) após 5 segundos, exibe o banner
   setTimeout(() => {
     banner.style.display = 'block';
-  }, 30000);
+  }, 20000);
 
   // 4) clicar em "Sim" esconde para sempre
   btnSim.addEventListener('click', () => {
