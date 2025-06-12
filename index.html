@@ -197,7 +197,7 @@
   </section>
 
   <section id="message" class="message">
-    <h2>Minha Mensagem</h2>
+    <h2>Querida Vic</h2>
     <p>Amor,</p>
     <p>Desde que você entrou na minha vida, tudo ganhou mais cor, mais sentido e mais amor.</p>
     <p>Você é minha paz nos dias difíceis, minha alegria nas vitórias e minha melhor companhia em todos os momentos.</p>
@@ -224,6 +224,73 @@
     <p>Feito com carinho pelo seu amô Thiago David</p>
     <p>Para a mulher mais especial do mundo.</p>
   </footer>
+  <!-- Pergunta surpresa -->
+<div id="ask-banner" style="display:none;
+                            position:fixed;
+                            bottom:20px;
+                            left:20px;
+                            background:#fff0f0;
+                            padding:1.5rem;
+                            border-radius:1rem;
+                            box-shadow:0 0 15px rgba(0,0,0,0.2);
+                            z-index:9999;
+                            transition: all 0.5s ease;">
+  <p style="margin-bottom:1rem; font-size:1.2rem; color:#990000;">
+    Butico hj?
+  </p>
+  <button id="btn-sim" style="margin-right:1rem; padding:0.5rem 1.2rem; border:none; background:#990000; color:white; border-radius:0.5rem; cursor:pointer;">
+    Sim
+  </button>
+  <button id="btn-nao" style="padding:0.5rem 1.2rem; border:none; background:#bbb; color:white; border-radius:0.5rem; cursor:pointer;">
+    Não
+  </button>
+</div>
+<script>
+  // 1) lista de posições para o banner
+  const positions = [
+    { bottom: '20px', left: '20px' },
+    { bottom: '20px', right: '20px' },
+    { top: '20px', left: '20px' },
+    { top: '20px', right: '20px' }
+  ];
+  let currentPos = 0;
+
+  // 2) referências
+  const banner = document.getElementById('ask-banner');
+  const btnSim = document.getElementById('btn-sim');
+  const btnNao = document.getElementById('btn-nao');
+
+  // 3) após 5 segundos, exibe o banner
+  setTimeout(() => {
+    banner.style.display = 'block';
+  }, 30000);
+
+  // 4) clicar em "Sim" esconde para sempre
+  btnSim.addEventListener('click', () => {
+    banner.style.display = 'none';
+  });
+
+  // 5) clicar em "Não" move o banner para a próxima posição
+  btnNao.addEventListener('click', () => {
+    // esconde temporariamente para animar
+    banner.style.opacity = 0;
+    setTimeout(() => {
+      // limpa top/bottom e left/right
+      banner.style.top = banner.style.bottom = '';
+      banner.style.left = banner.style.right = '';
+      // escolhe próxima posição
+      currentPos = (currentPos + 1) % positions.length;
+      const pos = positions[currentPos];
+      // aplica estilo
+      for (let prop in pos) {
+        banner.style[prop] = pos[prop];
+      }
+      // mostra de novo
+      banner.style.opacity = 1;
+    }, 300);
+  });
+</script>
+
 </body>
 </html>
 
